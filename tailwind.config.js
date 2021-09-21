@@ -17,9 +17,9 @@ module.exports = {
 
     variants: {
         extend: {
-            opacity: ['disabled'],
+            opacity: ['disabled'],fontWeight: ['hover', 'focus'],
         },
     },
 
-    plugins: [require('@tailwindcss/forms')],
+    plugins: [require('daisyui'),require('@tailwindcss/forms')],
 };

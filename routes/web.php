@@ -1,7 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Support\Facades\Auth;
+use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
+use App\Http\Controllers\Auth\CheckAdmin;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,12 +15,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', function () {        
+    return view('app');
 });
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
-
+Route::get('/admin',[CheckAdmin::class,'index'])->name('admin.dashboard');
+    
 require __DIR__.'/auth.php';

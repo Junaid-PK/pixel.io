@@ -36,8 +36,17 @@ switch ($width) {
             class="absolute z-50 mt-2 {{ $width }} rounded-md shadow-lg {{ $alignmentClasses }}"
             style="display: none;"
             @click="open = false">
-        <div class="rounded-md ring-1 ring-black ring-opacity-5 {{ $contentClasses }}">
-            {{ $content }}
+        <div>
+            <ul class="rounded-md">
+                <li class="{{ $contentClasses }}">{{ $content }}</li>
+                <?php
+                    if(Auth::user()->roles=='adm'){
+                ?>                
+                <li class="{{ $contentClasses }}"><a href="{{route('admin.dashboard')}}" class="p-3 text-black">Dashboard</a> </li>                
+                <?php
+                    }
+                ?>
+            </ul>
         </div>
     </div>
 </div>
