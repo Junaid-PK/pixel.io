@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 use App\Http\Controllers\Auth\CheckAdmin;
+use App\Http\Controllers\Auth\SocialLogin;
+use Laravel\Socialite\Facades\Socialite; 
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,6 +16,21 @@ use App\Http\Controllers\Auth\CheckAdmin;
 | contains the "web" middleware group. Now create something great!
 |
 */
+// Socialite Routes
+Route::get('/google/login', [SocialLogin::class,'RedirectToGoogle']);
+Route::get('/google/register', [SocialLogin::class,'RedirectToGoogle']);
+
+Route::get('/google/login/callback', [SocialLogin::class,'GoogleCallback']);
+
+
+
+
+
+
+
+
+
+
 
 Route::get('/', function () {        
     return view('app');

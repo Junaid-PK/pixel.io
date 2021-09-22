@@ -55,6 +55,9 @@
                     {{ __('Register') }}
                 </x-button>
             </div>
+            <div class="flex items-center justify-center mt-4">
+                <a href="{{url('google/register')}}" class="btn btn-success">SignUp with Google</a>
+            </div>
         </form>
     </x-auth-card>
 </x-guest-layout>
